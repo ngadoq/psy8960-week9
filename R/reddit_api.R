@@ -19,7 +19,7 @@ rstats_tbl <- rstats_original_tbl %>%
 (ggplot(rstats_tbl, aes(upvotes, comments))+
     geom_point() +
     xlab("Number of upvotes") +
-    ylab("Number of comments") ) |> 
+    ylab("Number of comments") ) %>% 
   ggsave(filename="../figs/fig1.png", units = "px", width = 1920, height = 1080)
 
 # Analysis
