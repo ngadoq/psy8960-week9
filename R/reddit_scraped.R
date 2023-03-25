@@ -14,10 +14,12 @@ rstats_html <- read_html_delayed("https://old.reddit.com/r/rstats/")
 # Extract post titles, upvotes, and comments from rstats_html using xpath
 post <- rstats_html %>% 
   html_elements(xpath = '//*[contains(concat( " ", @class, " " ), concat( " ", "title", " " )) and contains(concat( " ", @class, " " ), concat( " ", "may-blank", " " ))]') %>% 
+  # extract text from html nodes
   html_text()
 
 upvotes <- rstats_html %>% 
   html_elements(xpath = '//div[@class = "score unvoted"] ') %>% 
+  # extract text from html nodes
   html_text() %>%
   # convert to number for analysis
   as.integer() %>% 
@@ -26,6 +28,7 @@ upvotes <- rstats_html %>%
 
 comments <- rstats_html %>% 
   html_elements(xpath='//*[contains(concat( " ", @class, " " ), concat( " ", "comments", " " ))]') %>% 
+  # extract text from html nodes
   html_text() %>% 
   # remove character to retain only number
   str_extract("\\d+") %>% 

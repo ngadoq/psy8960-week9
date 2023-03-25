@@ -29,7 +29,7 @@ cor.test(rstats_tbl$upvotes, rstats_tbl$comments)
 
 # Publication 
 # The correlation between upvotes and comments was r(23) = .42, p = .038. This test was statistically significant.
-# function to display the output of the correlation
+# Function to display the output of the correlation
 correlation_fct <- function(upvotes, comments) {
   # Calculate the correlation between upvotes and comments
   cor_result <- cor.test(upvotes, comments)
