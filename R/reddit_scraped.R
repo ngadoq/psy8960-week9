@@ -5,11 +5,8 @@ library(rvest)
 
 # Data Import and Cleaning
 
-# Create a function with a delay of 2s
-read_html_delayed <- slowly(read_html, 
-                            rate = rate_delay(2))
 # Use rvest to create an xml_document from url
-rstats_html <- read_html_delayed("https://old.reddit.com/r/rstats/")
+rstats_html <- read_html("https://old.reddit.com/r/rstats/")
 
 # Extract post titles, upvotes, and comments from rstats_html using xpath
 post <- rstats_html %>% 
